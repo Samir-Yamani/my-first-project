@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class", // use 'media' if you want system preference
+        theme: {
+          extend: {
+            colors: {
+              primary: "#C8953B",
+              info: "#575757",
+            },
+            fontFamily: {
+              OptimusPrinceps: ['"OptimusPrinceps"', "sans-serif"], // 'custom' is your utility name
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Import Montserrat font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .menu {
+          @apply block py-2 px-3 text-black md:text-white hover:text-primary 
+             md:p-0 
+             text-xs font-bold uppercase tracking-widest transition-all duration-300;
+        }
+        .heaer_fixed .menu {
+          @apply text-black hover:text-primary;
+        }
+        .sliderCard {
+          @apply border border-black/10;
+        }
+        .black_btn {
+          @apply font-semibold uppercase text-black border border-black px-5 py-3 text-[15px] hover:bg-primary hover:text-white hover:border-primary transition-all duration-300;
+        }
+        .primary_btn {
+          @apply font-semibold uppercase text-white border bg-primary border-primary px-5 py-3 text-[15px] hover:bg-transparent hover:text-primary transition-all duration-300;
+        }
+        .primary_outline_btn {
+          @apply font-semibold uppercase text-primary border border-primary px-5 py-3 text-[15px] hover:bg-primary hover:text-white transition-all duration-300;
+        }
+        .swiper-pagination-bullet-active {
+          @apply bg-black;
+        }
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body class="">
+    <!-- Main top alert -->
+    <div
+      id="alert-5"
+      class="flex items-center justify-center p-3 rounded-0 bg-primary"
+      role="alert"
+    >
+      <div class="text-sm font-regular text-white">
+        Welcome offer and some Crazy deals content goes here
+      </div>
+      <button
+        type="button"
+        class="-mx-1.5 -my-1.5 absolute right-4"
+        data-dismiss-target="#alert-5"
+        aria-label="Close"
+      >
+        <span class="sr-only">Dismiss</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+        >
+          <path
+            d="M8 12L12 8"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M12 12L8 8"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M7.6 18H12.4C16.4 18 18 16.4 18 12.4V7.6C18 3.6 16.4 2 12.4 2H7.6C3.6 2 2 3.6 2 7.6V12.4C2 16.4 3.6 18 7.6 18Z"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Main Navbar Header -->
+    <nav
+      id="navbar"
+      class="fixed w-full border-b top-12 left-0 z-[100] border-white/30"
+    >
+      <div
+        class="flex flex-wrap items-center justify-between mx-auto p-4 px-5 xl:px-10 xl:py-4"
+      >
+        <a href="#" class="flex items-center">
+          <img src="assets/logo.jpg" class="me-3" alt="Logo" />
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700 md:items-center dark:bg-gray-900 bg-white md:bg-transparent dark:md:bg-transparent"
+          >
+            <li class="m-0">
+              <a href="#" class="menu" aria-current="page">Home</a>
+            </li>
+            <li>
+              <a href="#" class="menu">BUYING</a>
+            </li>
+            <li>
+              <a href="#" class="menu">SELLING</a>
+            </li>
+            <li>
+              <a href="#" class="menu">INVESTING</a>
+            </li>
+            <li>
+              <a href="#" class="menu">CONTACT</a>
+            </li>
+            <li>
+              <a href="#" class="menu">BLOG</a>
+            </li>
+            <li>
+              <a href="#" class="menu">LOGIN</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- <div
+      class="bg-[url('assets/main_banner.jpg')] py-40 h-screen flex items-center flex-col justify-center bg-center bg-no-repeat bg-cover text-center relative before:content-[''] before:absolute before:h-full before:w-full before:bg-black before:opacity-50"
+    ></div> -->
+
+    <div
+      id="indicators-carousel"
+      class="relative w-full"
+      data-carousel="static"
+    >
+      <!-- Carousel wrapper -->
+      <div
+        class="relative overflow-hidden py-40 h-screen before:content-[''] before:absolute before:h-full before:w-full before:left-0 before:top-0 before:z-40 before:bg-black before:opacity-50"
+      >
+        <!-- Item 1 -->
+        <div
+          class="hidden duration-700 ease-in-out"
+          data-carousel-item="active"
+        >
+          <img
+            src="assets/main_banner.jpg"
+            class="absolute block w-full h-full top-0 left-0 object-cover object-right"
+            alt="..."
+          />
+        </div>
+        <!-- Item 2 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img
+            src="assets/banner2.jpg"
+            class="absolute block w-full h-full top-0 left-0 object-cover object-right"
+            alt="..."
+          />
+        </div>
+        <!-- Item 3 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img
+            src="assets/main_banner.jpg"
+            class="absolute block w-full h-full top-0 left-0 object-cover object-right"
+            alt="..."
+          />
+        </div>
+        <!-- Item 4 -->
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <img
+            src="assets/banner2.jpg"
+            class="absolute block w-full h-full top-0 left-0 object-cover object-right"
+            alt="..."
+          />
+        </div>
+      </div>
+      <div
+        class="text-center z-50 flex items-center flex-col justify-center absolute w-full h-full top-0 left-0"
+      >
+        <p class="text-white tracking-widest font-bold text-base mb-3">
+          WELCOME TO
+        </p>
+        <h2 class="text-primary font-bold text-4xl lg:text-5xl">
+          GEHARD REAL ESTATE GROUP
+        </h2>
+        <p class="text-lg text-white font-semibold my-4">
+          A division of ABS Enterprises
+        </p>
+        <h2
+          class="text-white font-medium text-4xl sm:text-6xl xl:text-7xl mb-5"
+        >
+          WORLD CLASS SERVICES
+        </h2>
+      </div>
+      <div
+        class="absolute left-[30px] top-[40%] flex flex-col gap-[20px] lg:gap-[30px] z-50"
+      >
+        <a
+          href="#"
+          title="Facebook"
+          class="text-white hover:text-primary transition-all duration-300 relative"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+          >
+            <path
+              d="M11.5056 16.9337C11.393 16.9337 8.91489 16.9337 7.78849 16.9337C7.18773 16.9337 7 16.7084 7 16.1452C7 14.6433 7 13.1039 7 11.602C7 11.0013 7.22528 10.8135 7.78849 10.8135H11.5056C11.5056 10.7009 11.5056 8.52315 11.5056 7.50939C11.5056 6.00751 11.7685 4.58073 12.5194 3.26658C13.3079 1.91489 14.4343 1.01377 15.8611 0.48811C16.7997 0.150187 17.7384 0 18.7522 0H22.4318C22.9574 0 23.1827 0.225282 23.1827 0.750939V5.03129C23.1827 5.55695 22.9574 5.78223 22.4318 5.78223C21.418 5.78223 20.4043 5.78223 19.3905 5.81977C18.3767 5.81977 17.8511 6.30788 17.8511 7.3592C17.8135 8.48561 17.8511 9.57447 17.8511 10.7384H22.2065C22.8073 10.7384 23.0325 10.9637 23.0325 11.5645V16.1076C23.0325 16.7084 22.8448 16.8961 22.2065 16.8961C20.8548 16.8961 17.9637 16.8961 17.8511 16.8961V29.1364C17.8511 29.7747 17.6633 30 16.9875 30C15.4105 30 13.8711 30 12.2941 30C11.7309 30 11.5056 29.7747 11.5056 29.2115C11.5056 25.2691 11.5056 17.0463 11.5056 16.9337Z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+        <a
+          href="#"
+          title="Twitter"
+          class="text-white hover:text-primary transition-all duration-300 relative"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_217_699)">
+              <path
+                d="M17.7924 12.703L28.7205 0H26.1309L16.6421 11.0298L9.06338 0H0.322266L11.7827 16.679L0.322266 30H2.91201L12.9324 18.3522L20.9361 30H29.6772L17.7918 12.703H17.7924ZM14.2454 16.8259L13.0842 15.1651L3.84513 1.94951H7.82282L15.2789 12.6149L16.4401 14.2758L26.1321 28.1391H22.1544L14.2454 16.8266V16.8259Z"
+                fill="currentColor"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_217_699">
+                <rect width="30" height="30" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+        <a
+          href="#"
+          title="Instagram"
+          class="text-white hover:text-primary transition-all duration-300 relative"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_217_701)">
+              <path
+                d="M29.9707 8.82008C29.9004 7.22607 29.6426 6.1302 29.2734 5.18061C28.8924 4.17264 28.3064 3.27022 27.5386 2.52002C26.7884 1.75816 25.88 1.16615 24.8837 0.79117C23.9286 0.421912 22.8385 0.16414 21.2445 0.0938599C19.6385 0.0176273 19.1287 0 15.0557 0C10.9826 0 10.4728 0.0176273 8.87282 0.0879078C7.2788 0.158188 6.18293 0.416188 5.23357 0.785218C4.22538 1.16615 3.32295 1.7522 2.57276 2.52002C1.81089 3.27022 1.21912 4.1786 0.843905 5.17488C0.474646 6.1302 0.216875 7.22011 0.146594 8.81413C0.0703617 10.42 0.0527344 10.9299 0.0527344 15.0029C0.0527344 19.076 0.0703617 19.5858 0.140642 21.1858C0.210923 22.7798 0.468923 23.8757 0.838181 24.8253C1.21912 25.8332 1.81089 26.7356 2.57276 27.4858C3.32295 28.2477 4.23133 28.8397 5.22762 29.2147C6.18293 29.584 7.27285 29.8417 8.86709 29.912C10.4668 29.9825 10.9769 29.9999 15.0499 29.9999C19.123 29.9999 19.6328 29.9825 21.2328 29.912C22.8268 29.8417 23.9227 29.584 24.872 29.2147C26.8882 28.4352 28.4822 26.8412 29.2617 24.8253C29.6307 23.8699 29.8887 22.7798 29.959 21.1858C30.0293 19.5858 30.0469 19.076 30.0469 15.0029C30.0469 10.9299 30.041 10.42 29.9707 8.82008ZM27.2691 21.0686C27.2046 22.5337 26.9585 23.3249 26.7534 23.8523C26.2493 25.1593 25.212 26.1965 23.9051 26.7006C23.3776 26.9057 22.5807 27.1518 21.1213 27.2162C19.539 27.2867 19.0644 27.3041 15.0616 27.3041C11.0588 27.3041 10.5783 27.2867 9.0017 27.2162C7.53657 27.1518 6.7454 26.9057 6.21796 26.7006C5.56757 26.4602 4.97557 26.0793 4.49505 25.5812C3.99691 25.0947 3.61598 24.5086 3.3756 23.8583C3.17049 23.3308 2.92439 22.5337 2.86006 21.0745C2.78955 19.4922 2.77215 19.0174 2.77215 15.0146C2.77215 11.0118 2.78955 10.5313 2.86006 8.95492C2.92439 7.48979 3.17049 6.69862 3.3756 6.17117C3.61598 5.52056 3.99691 4.92879 4.50101 4.44804C4.98725 3.9499 5.5733 3.56896 6.22391 3.32882C6.75135 3.1237 7.54848 2.87761 9.00765 2.81305C10.59 2.74277 11.0648 2.72514 15.0673 2.72514C19.0761 2.72514 19.5506 2.74277 21.1273 2.81305C22.5924 2.87761 23.3836 3.1237 23.911 3.32882C24.5614 3.56896 25.1534 3.9499 25.6339 4.44804C26.132 4.93451 26.513 5.52056 26.7534 6.17117C26.9585 6.69862 27.2046 7.49551 27.2691 8.95492C27.3394 10.5373 27.357 11.0118 27.357 15.0146C27.357 19.0174 27.3394 19.4862 27.2691 21.0686Z"
+                fill="currentColor"
+              />
+              <path
+                d="M15.0562 7.2959C10.8016 7.2959 7.34961 10.7477 7.34961 15.0025C7.34961 19.2573 10.8016 22.7091 15.0562 22.7091C19.311 22.7091 22.7628 19.2573 22.7628 15.0025C22.7628 10.7477 19.311 7.2959 15.0562 7.2959ZM15.0562 20.0016C12.296 20.0016 10.0571 17.7629 10.0571 15.0025C10.0571 12.2421 12.296 10.0034 15.0562 10.0034C17.8166 10.0034 20.0553 12.2421 20.0553 15.0025C20.0553 17.7629 17.8166 20.0016 15.0562 20.0016Z"
+                fill="currentColor"
+              />
+              <path
+                d="M24.8661 6.99152C24.8661 7.98506 24.0605 8.79065 23.0667 8.79065C22.0732 8.79065 21.2676 7.98506 21.2676 6.99152C21.2676 5.99775 22.0732 5.19238 23.0667 5.19238C24.0605 5.19238 24.8661 5.99775 24.8661 6.99152Z"
+                fill="currentColor"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_217_701">
+                <rect width="30" height="30" fill="currentcolor" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+        <a
+          href="#"
+          title="youtube"
+          class="text-white hover:text-primary transition-all duration-300 relative"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_217_705)">
+              <path
+                d="M29.3366 7.41127L29.3741 7.65627C29.0116 6.37002 28.0329 5.37752 26.7891 5.01627L26.7629 5.01002C24.4241 4.37502 15.0129 4.37502 15.0129 4.37502C15.0129 4.37502 5.62537 4.36252 3.26287 5.01002C1.99537 5.37752 1.01537 6.37002 0.659118 7.63002L0.652868 7.65627C-0.220882 12.22 -0.227132 17.7038 0.691618 22.59L0.652868 22.3425C1.01537 23.6288 1.99412 24.6213 3.23787 24.9825L3.26412 24.9888C5.60037 25.625 15.0141 25.625 15.0141 25.625C15.0141 25.625 24.4004 25.625 26.7641 24.9888C28.0329 24.6213 29.0129 23.6288 29.3691 22.3688L29.3754 22.3425C29.7729 20.22 30.0004 17.7775 30.0004 15.2825C30.0004 15.1913 30.0004 15.0988 29.9991 15.0063C30.0004 14.9213 30.0004 14.82 30.0004 14.7188C30.0004 12.2225 29.7729 9.78002 29.3366 7.41127ZM12.0104 19.5638V10.4475L19.8429 15.0125L12.0104 19.5638Z"
+                fill="currentColor"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_217_705">
+                <rect width="30" height="30" fill="currentcolor" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+        <a
+          href="#"
+          title="pinterest"
+          class="text-white hover:text-primary transition-all duration-300 relative"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 30 30"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_217_707)">
+              <path
+                d="M12.9229 19.8423C12.1354 23.972 11.1732 27.9318 8.32325 30.0001C7.44375 23.7576 9.61524 19.0695 10.623 14.0925C8.90391 11.198 10.8299 5.37378 14.4563 6.80933C18.9182 8.57417 10.5926 17.5689 16.1818 18.6921C22.0178 19.8646 24.3996 8.56656 20.7814 4.89273C15.5525 -0.412938 5.56114 4.77144 6.78985 12.3675C7.08867 14.2244 9.00762 14.788 7.55684 17.3503C4.20996 16.6085 3.21153 13.9695 3.33985 10.4509C3.54668 4.69116 8.51485 0.658742 13.4982 0.100929C19.8 -0.60454 25.7145 2.41421 26.5313 8.34273C27.4512 15.0335 23.6865 22.2798 16.9482 21.7589C15.1213 21.6171 14.3549 20.7119 12.9229 19.8423Z"
+                fill="currentColor"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_217_707">
+                <rect width="30" height="30" fill="currentcolor" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </div>
+      <!-- Slider indicators -->
+      <div
+        class="absolute z-50 flex -translate-x-1/2 space-x-5 rtl:space-x-reverse bottom-5 left-1/2"
+      >
+        <button
+          type="button"
+          class="w-2 h-2 rounded-full"
+          aria-current="true"
+          aria-label="Slide 1"
+          data-carousel-slide-to="0"
+        ></button>
+        <button
+          type="button"
+          class="w-2 h-2 rounded-full"
+          aria-current="false"
+          aria-label="Slide 2"
+          data-carousel-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          class="w-2 h-2 rounded-full"
+          aria-current="false"
+          aria-label="Slide 3"
+          data-carousel-slide-to="2"
+        ></button>
+        <button
+          type="button"
+          class="w-2 h-2 rounded-full"
+          aria-current="false"
+          aria-label="Slide 4"
+          data-carousel-slide-to="3"
+        ></button>
+      </div>
+    </div>
+
+    <div class="container-fluid mx-auto py-20 px-4 xl:px-20">
+      <div class="relative border-b border-black/35 pb-5 mb-8">
+        <h2
+          class="font-OptimusPrinceps text-[18px] flex items-center lg:text-[40px] uppercase font-regular text-black before:content-[''] before:inline-block before:w-14 md:before:w-24 before:h-px before:bg-black"
+        >
+          <span class="text-slate-400 ms-3">Curated</span>&nbsp;Residential
+          Listings
+        </h2>
+      </div>
+      <div class="lg:px-28 relative">
+        <!-- Swiper container -->
+        <div class="swiper product-slider w-full mx-auto">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="sliderCard group">
+                <div class="relative">
+                  <span
+                    class="text-[12px] text-white font-semibold p-2 absolute left-0 top-5 bg-black/50 z-10"
+                    >Open</span
+                  >
+                  <div class="swiper card-image-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img1.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img2.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img3.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="swiper-button-prev card-prev text-white after:content-['prev'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-button-next card-next text-white after:content-['next'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-pagination card-pagination bg-black/50 text-white text-[12px] font-semibold p-2 max-w-12 mx-auto end-0 bottom-0"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  class="p-5 group-hover:bg-primary transition-all duration-300"
+                >
+                  <h4
+                    class="text-black group-hover:text-white font-bold text-[20px] md:text-[26px] mb-2"
+                  >
+                    $289,000
+                  </h4>
+                  <div
+                    class="flex gap-[10px] md:gap-[40px] text-black group-hover:text-white mb-5"
+                  >
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">4</p>
+                      <p class="text-[14px] m-0">Bed</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">2</p>
+                      <p class="text-[14px] m-0">Bath</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">3017</p>
+                      <p class="text-[14px] m-0">Sq. Ft</p>
+                    </div>
+                  </div>
+                  <div class="flex text-black group-hover:text-white mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      class="shrink-0"
+                    >
+                      <path
+                        d="M7.99997 0C5.05922 0 2.66663 2.39259 2.66663 5.33334C2.66663 6.21616 2.88734 7.09147 3.30694 7.86784L7.70831 15.8281C7.76691 15.9342 7.87856 16 7.99997 16C8.12138 16 8.23303 15.9342 8.29163 15.8281L12.6946 7.86522C13.1126 7.09147 13.3333 6.21613 13.3333 5.33331C13.3333 2.39259 10.9407 0 7.99997 0ZM7.99997 8C6.52959 8 5.33331 6.80372 5.33331 5.33334C5.33331 3.86297 6.52959 2.66669 7.99997 2.66669C9.47034 2.66669 10.6666 3.86297 10.6666 5.33334C10.6666 6.80372 9.47034 8 7.99997 8Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <p class="text-[13px] font-semibold m-0 ms-2">
+                      16537 Gold Ridge Ln Houston, TX 77053
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div class="text-[14px] text-info group-hover:text-white">
+                      Listed with
+                      <a
+                        href="#"
+                        class="font-semibold text-primary group-hover:text-white"
+                        >Keller Williams</a
+                      >
+                      <br />
+                      Realty Greater
+                    </div>
+                    <div class="flex items-center gap-5">
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M10.5166 17.3416C10.2333 17.4416 9.76663 17.4416 9.48329 17.3416C7.06663 16.5166 1.66663 13.0749 1.66663 7.24159C1.66663 4.66659 3.74163 2.58325 6.29996 2.58325C7.81663 2.58325 9.15829 3.31659 9.99996 4.44992C10.8416 3.31659 12.1916 2.58325 13.7 2.58325C16.2583 2.58325 18.3333 4.66659 18.3333 7.24159C18.3333 13.0749 12.9333 16.5166 10.5166 17.3416Z"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </a>
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M12.089 2.66108C11.9725 2.54454 11.824 2.46517 11.6624 2.43301C11.5007 2.40085 11.3332 2.41735 11.1809 2.48041C11.0286 2.54347 10.8985 2.65027 10.8069 2.7873C10.7154 2.92433 10.6665 3.08544 10.6665 3.25024V6.16691C8.27291 6.19174 5.98563 7.15928 4.30081 8.85964C2.61598 10.56 1.66949 12.8561 1.66663 15.2498V16.7496C1.66671 16.9285 1.72431 17.1026 1.83092 17.2462C1.93753 17.3898 2.08749 17.4953 2.25867 17.5471C2.33687 17.571 2.41819 17.5831 2.49996 17.583C2.63714 17.5829 2.77219 17.549 2.89313 17.4843C3.01408 17.4196 3.11718 17.326 3.19329 17.2119C6.37648 12.4373 9.42905 12.0963 10.6664 12.1956V15.2498C10.6664 15.4146 10.7153 15.5757 10.8069 15.7127C10.8984 15.8497 11.0286 15.9565 11.1808 16.0196C11.3331 16.0826 11.5007 16.0991 11.6623 16.067C11.8239 16.0348 11.9724 15.9555 12.0889 15.8389L18.0891 9.83875C18.1665 9.76139 18.2279 9.66954 18.2698 9.56844C18.3117 9.46735 18.3332 9.35899 18.3332 9.24956C18.3332 9.14013 18.3117 9.03177 18.2698 8.93067C18.2279 8.82958 18.1665 8.73773 18.0891 8.66037L12.089 2.66108Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sliderCard group">
+                <div class="relative">
+                  <span
+                    class="text-[12px] text-white font-semibold p-2 absolute left-0 top-5 bg-black/50 z-10"
+                    >New Listing</span
+                  >
+                  <div class="swiper card-image-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img2.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img1.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img3.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="swiper-button-prev card-prev text-white after:content-['prev'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-button-next card-next text-white after:content-['next'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-pagination card-pagination bg-black/50 text-white text-[12px] font-semibold p-2 max-w-12 mx-auto end-0 bottom-0"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  class="p-5 group-hover:bg-primary transition-all duration-300"
+                >
+                  <h4
+                    class="text-black group-hover:text-white font-bold text-[20px] md:text-[26px] mb-2"
+                  >
+                    $289,000
+                  </h4>
+                  <div
+                    class="flex gap-[10px] md:gap-[40px] text-black group-hover:text-white mb-5"
+                  >
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">4</p>
+                      <p class="text-[14px] m-0">Bed</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">2</p>
+                      <p class="text-[14px] m-0">Bath</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">3017</p>
+                      <p class="text-[14px] m-0">Sq. Ft</p>
+                    </div>
+                  </div>
+                  <div class="flex text-black group-hover:text-white mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      class="shrink-0"
+                    >
+                      <path
+                        d="M7.99997 0C5.05922 0 2.66663 2.39259 2.66663 5.33334C2.66663 6.21616 2.88734 7.09147 3.30694 7.86784L7.70831 15.8281C7.76691 15.9342 7.87856 16 7.99997 16C8.12138 16 8.23303 15.9342 8.29163 15.8281L12.6946 7.86522C13.1126 7.09147 13.3333 6.21613 13.3333 5.33331C13.3333 2.39259 10.9407 0 7.99997 0ZM7.99997 8C6.52959 8 5.33331 6.80372 5.33331 5.33334C5.33331 3.86297 6.52959 2.66669 7.99997 2.66669C9.47034 2.66669 10.6666 3.86297 10.6666 5.33334C10.6666 6.80372 9.47034 8 7.99997 8Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <p class="text-[13px] font-semibold m-0 ms-2">
+                      16537 Gold Ridge Ln Houston, TX 77053
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div class="text-[14px] text-info group-hover:text-white">
+                      Listed with
+                      <a
+                        href="#"
+                        class="font-semibold text-primary group-hover:text-white"
+                        >Keller Williams</a
+                      >
+                      <br />
+                      Realty Greater
+                    </div>
+                    <div class="flex items-center gap-5">
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M10.5166 17.3416C10.2333 17.4416 9.76663 17.4416 9.48329 17.3416C7.06663 16.5166 1.66663 13.0749 1.66663 7.24159C1.66663 4.66659 3.74163 2.58325 6.29996 2.58325C7.81663 2.58325 9.15829 3.31659 9.99996 4.44992C10.8416 3.31659 12.1916 2.58325 13.7 2.58325C16.2583 2.58325 18.3333 4.66659 18.3333 7.24159C18.3333 13.0749 12.9333 16.5166 10.5166 17.3416Z"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </a>
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M12.089 2.66108C11.9725 2.54454 11.824 2.46517 11.6624 2.43301C11.5007 2.40085 11.3332 2.41735 11.1809 2.48041C11.0286 2.54347 10.8985 2.65027 10.8069 2.7873C10.7154 2.92433 10.6665 3.08544 10.6665 3.25024V6.16691C8.27291 6.19174 5.98563 7.15928 4.30081 8.85964C2.61598 10.56 1.66949 12.8561 1.66663 15.2498V16.7496C1.66671 16.9285 1.72431 17.1026 1.83092 17.2462C1.93753 17.3898 2.08749 17.4953 2.25867 17.5471C2.33687 17.571 2.41819 17.5831 2.49996 17.583C2.63714 17.5829 2.77219 17.549 2.89313 17.4843C3.01408 17.4196 3.11718 17.326 3.19329 17.2119C6.37648 12.4373 9.42905 12.0963 10.6664 12.1956V15.2498C10.6664 15.4146 10.7153 15.5757 10.8069 15.7127C10.8984 15.8497 11.0286 15.9565 11.1808 16.0196C11.3331 16.0826 11.5007 16.0991 11.6623 16.067C11.8239 16.0348 11.9724 15.9555 12.0889 15.8389L18.0891 9.83875C18.1665 9.76139 18.2279 9.66954 18.2698 9.56844C18.3117 9.46735 18.3332 9.35899 18.3332 9.24956C18.3332 9.14013 18.3117 9.03177 18.2698 8.93067C18.2279 8.82958 18.1665 8.73773 18.0891 8.66037L12.089 2.66108Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sliderCard group">
+                <div class="relative">
+                  <span
+                    class="text-[12px] text-white font-semibold p-2 absolute left-0 top-5 bg-black/50 z-10"
+                    >Open</span
+                  >
+                  <div class="swiper card-image-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img3.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img2.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img1.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="swiper-button-prev card-prev text-white after:content-['prev'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-button-next card-next text-white after:content-['next'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-pagination card-pagination bg-black/50 text-white text-[12px] font-semibold p-2 max-w-12 mx-auto end-0 bottom-0"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  class="p-5 group-hover:bg-primary transition-all duration-300"
+                >
+                  <h4
+                    class="text-black group-hover:text-white font-bold text-[20px] md:text-[26px] mb-2"
+                  >
+                    $289,000
+                  </h4>
+                  <div
+                    class="flex gap-[10px] md:gap-[40px] text-black group-hover:text-white mb-5"
+                  >
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">4</p>
+                      <p class="text-[14px] m-0">Bed</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">2</p>
+                      <p class="text-[14px] m-0">Bath</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">3017</p>
+                      <p class="text-[14px] m-0">Sq. Ft</p>
+                    </div>
+                  </div>
+                  <div class="flex text-black group-hover:text-white mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      class="shrink-0"
+                    >
+                      <path
+                        d="M7.99997 0C5.05922 0 2.66663 2.39259 2.66663 5.33334C2.66663 6.21616 2.88734 7.09147 3.30694 7.86784L7.70831 15.8281C7.76691 15.9342 7.87856 16 7.99997 16C8.12138 16 8.23303 15.9342 8.29163 15.8281L12.6946 7.86522C13.1126 7.09147 13.3333 6.21613 13.3333 5.33331C13.3333 2.39259 10.9407 0 7.99997 0ZM7.99997 8C6.52959 8 5.33331 6.80372 5.33331 5.33334C5.33331 3.86297 6.52959 2.66669 7.99997 2.66669C9.47034 2.66669 10.6666 3.86297 10.6666 5.33334C10.6666 6.80372 9.47034 8 7.99997 8Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <p class="text-[13px] font-semibold m-0 ms-2">
+                      16537 Gold Ridge Ln Houston, TX 77053
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div class="text-[14px] text-info group-hover:text-white">
+                      Listed with
+                      <a
+                        href="#"
+                        class="font-semibold text-primary group-hover:text-white"
+                        >Keller Williams</a
+                      >
+                      <br />
+                      Realty Greater
+                    </div>
+                    <div class="flex items-center gap-5">
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M10.5166 17.3416C10.2333 17.4416 9.76663 17.4416 9.48329 17.3416C7.06663 16.5166 1.66663 13.0749 1.66663 7.24159C1.66663 4.66659 3.74163 2.58325 6.29996 2.58325C7.81663 2.58325 9.15829 3.31659 9.99996 4.44992C10.8416 3.31659 12.1916 2.58325 13.7 2.58325C16.2583 2.58325 18.3333 4.66659 18.3333 7.24159C18.3333 13.0749 12.9333 16.5166 10.5166 17.3416Z"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </a>
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M12.089 2.66108C11.9725 2.54454 11.824 2.46517 11.6624 2.43301C11.5007 2.40085 11.3332 2.41735 11.1809 2.48041C11.0286 2.54347 10.8985 2.65027 10.8069 2.7873C10.7154 2.92433 10.6665 3.08544 10.6665 3.25024V6.16691C8.27291 6.19174 5.98563 7.15928 4.30081 8.85964C2.61598 10.56 1.66949 12.8561 1.66663 15.2498V16.7496C1.66671 16.9285 1.72431 17.1026 1.83092 17.2462C1.93753 17.3898 2.08749 17.4953 2.25867 17.5471C2.33687 17.571 2.41819 17.5831 2.49996 17.583C2.63714 17.5829 2.77219 17.549 2.89313 17.4843C3.01408 17.4196 3.11718 17.326 3.19329 17.2119C6.37648 12.4373 9.42905 12.0963 10.6664 12.1956V15.2498C10.6664 15.4146 10.7153 15.5757 10.8069 15.7127C10.8984 15.8497 11.0286 15.9565 11.1808 16.0196C11.3331 16.0826 11.5007 16.0991 11.6623 16.067C11.8239 16.0348 11.9724 15.9555 12.0889 15.8389L18.0891 9.83875C18.1665 9.76139 18.2279 9.66954 18.2698 9.56844C18.3117 9.46735 18.3332 9.35899 18.3332 9.24956C18.3332 9.14013 18.3117 9.03177 18.2698 8.93067C18.2279 8.82958 18.1665 8.73773 18.0891 8.66037L12.089 2.66108Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sliderCard group">
+                <div class="relative">
+                  <span
+                    class="text-[12px] text-white font-semibold p-2 absolute left-0 top-5 bg-black/50 z-10"
+                    >Open</span
+                  >
+                  <div class="swiper card-image-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img4.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img2.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img3.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="swiper-button-prev card-prev text-white after:content-['prev'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-button-next card-next text-white after:content-['next'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-pagination card-pagination bg-black/50 text-white text-[12px] font-semibold p-2 max-w-12 mx-auto end-0 bottom-0"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  class="p-5 group-hover:bg-primary transition-all duration-300"
+                >
+                  <h4
+                    class="text-black group-hover:text-white font-bold text-[20px] md:text-[26px] mb-2"
+                  >
+                    $289,000
+                  </h4>
+                  <div
+                    class="flex gap-[10px] md:gap-[40px] text-black group-hover:text-white mb-5"
+                  >
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">4</p>
+                      <p class="text-[14px] m-0">Bed</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">2</p>
+                      <p class="text-[14px] m-0">Bath</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">3017</p>
+                      <p class="text-[14px] m-0">Sq. Ft</p>
+                    </div>
+                  </div>
+                  <div class="flex text-black group-hover:text-white mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      class="shrink-0"
+                    >
+                      <path
+                        d="M7.99997 0C5.05922 0 2.66663 2.39259 2.66663 5.33334C2.66663 6.21616 2.88734 7.09147 3.30694 7.86784L7.70831 15.8281C7.76691 15.9342 7.87856 16 7.99997 16C8.12138 16 8.23303 15.9342 8.29163 15.8281L12.6946 7.86522C13.1126 7.09147 13.3333 6.21613 13.3333 5.33331C13.3333 2.39259 10.9407 0 7.99997 0ZM7.99997 8C6.52959 8 5.33331 6.80372 5.33331 5.33334C5.33331 3.86297 6.52959 2.66669 7.99997 2.66669C9.47034 2.66669 10.6666 3.86297 10.6666 5.33334C10.6666 6.80372 9.47034 8 7.99997 8Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <p class="text-[13px] font-semibold m-0 ms-2">
+                      16537 Gold Ridge Ln Houston, TX 77053
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div class="text-[14px] text-info group-hover:text-white">
+                      Listed with
+                      <a
+                        href="#"
+                        class="font-semibold text-primary group-hover:text-white"
+                        >Keller Williams</a
+                      >
+                      <br />
+                      Realty Greater
+                    </div>
+                    <div class="flex items-center gap-5">
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M10.5166 17.3416C10.2333 17.4416 9.76663 17.4416 9.48329 17.3416C7.06663 16.5166 1.66663 13.0749 1.66663 7.24159C1.66663 4.66659 3.74163 2.58325 6.29996 2.58325C7.81663 2.58325 9.15829 3.31659 9.99996 4.44992C10.8416 3.31659 12.1916 2.58325 13.7 2.58325C16.2583 2.58325 18.3333 4.66659 18.3333 7.24159C18.3333 13.0749 12.9333 16.5166 10.5166 17.3416Z"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </a>
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M12.089 2.66108C11.9725 2.54454 11.824 2.46517 11.6624 2.43301C11.5007 2.40085 11.3332 2.41735 11.1809 2.48041C11.0286 2.54347 10.8985 2.65027 10.8069 2.7873C10.7154 2.92433 10.6665 3.08544 10.6665 3.25024V6.16691C8.27291 6.19174 5.98563 7.15928 4.30081 8.85964C2.61598 10.56 1.66949 12.8561 1.66663 15.2498V16.7496C1.66671 16.9285 1.72431 17.1026 1.83092 17.2462C1.93753 17.3898 2.08749 17.4953 2.25867 17.5471C2.33687 17.571 2.41819 17.5831 2.49996 17.583C2.63714 17.5829 2.77219 17.549 2.89313 17.4843C3.01408 17.4196 3.11718 17.326 3.19329 17.2119C6.37648 12.4373 9.42905 12.0963 10.6664 12.1956V15.2498C10.6664 15.4146 10.7153 15.5757 10.8069 15.7127C10.8984 15.8497 11.0286 15.9565 11.1808 16.0196C11.3331 16.0826 11.5007 16.0991 11.6623 16.067C11.8239 16.0348 11.9724 15.9555 12.0889 15.8389L18.0891 9.83875C18.1665 9.76139 18.2279 9.66954 18.2698 9.56844C18.3117 9.46735 18.3332 9.35899 18.3332 9.24956C18.3332 9.14013 18.3117 9.03177 18.2698 8.93067C18.2279 8.82958 18.1665 8.73773 18.0891 8.66037L12.089 2.66108Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sliderCard group">
+                <div class="relative">
+                  <span
+                    class="text-[12px] text-white font-semibold p-2 absolute left-0 top-5 bg-black/50 z-10"
+                    >Open</span
+                  >
+                  <div class="swiper card-image-slider">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img1.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img2.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                      <div class="swiper-slide">
+                        <img
+                          src="assets/img3.jpg"
+                          alt="card image"
+                          class="object-cover h-[260px] w-full"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="swiper-button-prev card-prev text-white after:content-['prev'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-button-next card-next text-white after:content-['next'] after:text-[24px]"
+                    ></div>
+                    <div
+                      class="swiper-pagination card-pagination bg-black/50 text-white text-[12px] font-semibold p-2 max-w-12 mx-auto end-0 bottom-0"
+                    ></div>
+                  </div>
+                </div>
+                <div
+                  class="p-5 group-hover:bg-primary transition-all duration-300"
+                >
+                  <h4
+                    class="text-black group-hover:text-white font-bold text-[20px] md:text-[26px] mb-2"
+                  >
+                    $289,000
+                  </h4>
+                  <div
+                    class="flex gap-[10px] md:gap-[40px] text-black group-hover:text-white mb-5"
+                  >
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">4</p>
+                      <p class="text-[14px] m-0">Bed</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">2</p>
+                      <p class="text-[14px] m-0">Bath</p>
+                    </div>
+                    <div>
+                      <p class="font-semibold m-0 text-[20px]">3017</p>
+                      <p class="text-[14px] m-0">Sq. Ft</p>
+                    </div>
+                  </div>
+                  <div class="flex text-black group-hover:text-white mb-5">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      class="shrink-0"
+                    >
+                      <path
+                        d="M7.99997 0C5.05922 0 2.66663 2.39259 2.66663 5.33334C2.66663 6.21616 2.88734 7.09147 3.30694 7.86784L7.70831 15.8281C7.76691 15.9342 7.87856 16 7.99997 16C8.12138 16 8.23303 15.9342 8.29163 15.8281L12.6946 7.86522C13.1126 7.09147 13.3333 6.21613 13.3333 5.33331C13.3333 2.39259 10.9407 0 7.99997 0ZM7.99997 8C6.52959 8 5.33331 6.80372 5.33331 5.33334C5.33331 3.86297 6.52959 2.66669 7.99997 2.66669C9.47034 2.66669 10.6666 3.86297 10.6666 5.33334C10.6666 6.80372 9.47034 8 7.99997 8Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    <p class="text-[13px] font-semibold m-0 ms-2">
+                      16537 Gold Ridge Ln Houston, TX 77053
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <div class="text-[14px] text-info group-hover:text-white">
+                      Listed with
+                      <a
+                        href="#"
+                        class="font-semibold text-primary group-hover:text-white"
+                        >Keller Williams</a
+                      >
+                      <br />
+                      Realty Greater
+                    </div>
+                    <div class="flex items-center gap-5">
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M10.5166 17.3416C10.2333 17.4416 9.76663 17.4416 9.48329 17.3416C7.06663 16.5166 1.66663 13.0749 1.66663 7.24159C1.66663 4.66659 3.74163 2.58325 6.29996 2.58325C7.81663 2.58325 9.15829 3.31659 9.99996 4.44992C10.8416 3.31659 12.1916 2.58325 13.7 2.58325C16.2583 2.58325 18.3333 4.66659 18.3333 7.24159C18.3333 13.0749 12.9333 16.5166 10.5166 17.3416Z"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </a>
+                      <a href="#" class="text-primary group-hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                        >
+                          <path
+                            d="M12.089 2.66108C11.9725 2.54454 11.824 2.46517 11.6624 2.43301C11.5007 2.40085 11.3332 2.41735 11.1809 2.48041C11.0286 2.54347 10.8985 2.65027 10.8069 2.7873C10.7154 2.92433 10.6665 3.08544 10.6665 3.25024V6.16691C8.27291 6.19174 5.98563 7.15928 4.30081 8.85964C2.61598 10.56 1.66949 12.8561 1.66663 15.2498V16.7496C1.66671 16.9285 1.72431 17.1026 1.83092 17.2462C1.93753 17.3898 2.08749 17.4953 2.25867 17.5471C2.33687 17.571 2.41819 17.5831 2.49996 17.583C2.63714 17.5829 2.77219 17.549 2.89313 17.4843C3.01408 17.4196 3.11718 17.326 3.19329 17.2119C6.37648 12.4373 9.42905 12.0963 10.6664 12.1956V15.2498C10.6664 15.4146 10.7153 15.5757 10.8069 15.7127C10.8984 15.8497 11.0286 15.9565 11.1808 16.0196C11.3331 16.0826 11.5007 16.0991 11.6623 16.067C11.8239 16.0348 11.9724 15.9555 12.0889 15.8389L18.0891 9.83875C18.1665 9.76139 18.2279 9.66954 18.2698 9.56844C18.3117 9.46735 18.3332 9.35899 18.3332 9.24956C18.3332 9.14013 18.3117 9.03177 18.2698 8.93067C18.2279 8.82958 18.1665 8.73773 18.0891 8.66037L12.089 2.66108Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Optional navigation buttons -->
+        <div
+          class="swiper-button-prev product-prev text-black absolute top-1/2 -translate-y-1/2 z-10 after:content-['prev'] after:text-[30px]"
+        ></div>
+        <div
+          class="swiper-button-next product-next text-black absolute top-1/2 -translate-y-1/2 z-10 after:content-['next'] after:text-[30px]"
+        ></div>
+      </div>
+      <div class="flex justify-end lg:px-28 mt-10 gap-4 items-center">
+        <span class="text-[12px] text-black">378 Listings</span>
+        <a href="#" class="black_btn">View All Listings</a>
+      </div>
+    </div>
+    <!-- Testimonial section -->
+    <div class="bg-[#F8F3F0] py-20">
+      <div class="container mx-auto">
+        <h2
+          class="font-OptimusPrinceps text-[18px] lg:text-[40px] uppercase font-regular text-black mb-4 text-center"
+        >
+          <span class="text-[#D7CFCB] block">WHAT OUR LOVING CLIENTS SAY</span>
+          TESTIMONIAL
+        </h2>
+        <div class="swiper testimonial-slider my-10">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="p-[20px] bg-white flex flex-col">
+                <div class="p-[10px] text-base text-black mb-10">
+                  I listed my condo on this site and had multiple offers within
+                  the first week. The process was straightforward, and the
+                  platform made it easy to communicate with serious buyers. I
+                  closed the sale in just under a month!
+                </div>
+                <div class="mt-auto flex items-end gap-3">
+                  <img
+                    src="assets/Ellipse.png"
+                    class="h-[32px] w-[32px] rounded-full object-cover shrink-0"
+                  />
+                  <div>
+                    <p class="text-base text-primary font-medium">
+                      Jessica Morgan
+                    </p>
+                    <p class="text-sm italic text-black">Austin, Texas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="p-[20px] bg-white flex flex-col">
+                <div class="p-[10px] text-base text-black mb-10">
+                  I listed my condo on this site and had multiple offers within
+                  the first week. The process was straightforward, and the
+                  platform made it easy to communicate with serious buyers. I
+                  closed the sale in just under a month!
+                </div>
+                <div class="mt-auto flex items-end gap-3">
+                  <img
+                    src="assets/Ellipse.png"
+                    class="h-[32px] w-[32px] rounded-full object-cover shrink-0"
+                  />
+                  <div>
+                    <p class="text-base text-primary font-medium">
+                      Jessica Morgan
+                    </p>
+                    <p class="text-sm italic text-black">Austin, Texas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="p-[20px] bg-white flex flex-col">
+                <div class="p-[10px] text-base text-black mb-10">
+                  I listed my condo on this site and had multiple offers within
+                  the first week. The process was straightforward, and the
+                  platform made it easy to communicate with serious buyers. I
+                  closed the sale in just under a month!
+                </div>
+                <div class="mt-auto flex items-end gap-3">
+                  <img
+                    src="assets/Ellipse.png"
+                    class="h-[32px] w-[32px] rounded-full object-cover shrink-0"
+                  />
+                  <div>
+                    <p class="text-base text-primary font-medium">
+                      Jessica Morgan
+                    </p>
+                    <p class="text-sm italic text-black">Austin, Texas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="p-[20px] bg-white flex flex-col">
+                <div class="p-[10px] text-base text-black mb-10">
+                  I listed my condo on this site and had multiple offers within
+                  the first week. The process was straightforward, and the
+                  platform made it easy to communicate with serious buyers. I
+                  closed the sale in just under a month!
+                </div>
+                <div class="mt-auto flex items-end gap-3">
+                  <img
+                    src="assets/Ellipse.png"
+                    class="h-[32px] w-[32px] rounded-full object-cover shrink-0"
+                  />
+                  <div>
+                    <p class="text-base text-primary font-medium">
+                      Jessica Morgan
+                    </p>
+                    <p class="text-sm italic text-black">Austin, Texas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="p-[20px] bg-white flex flex-col">
+                <div class="p-[10px] text-base text-black mb-10">
+                  I listed my condo on this site and had multiple offers within
+                  the first week. The process was straightforward, and the
+                  platform made it easy to communicate with serious buyers. I
+                  closed the sale in just under a month!
+                </div>
+                <div class="mt-auto flex items-end gap-3">
+                  <img
+                    src="assets/Ellipse.png"
+                    class="h-[32px] w-[32px] rounded-full object-cover shrink-0"
+                  />
+                  <div>
+                    <p class="text-base text-primary font-medium">
+                      Jessica Morgan
+                    </p>
+                    <p class="text-sm italic text-black">Austin, Texas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="p-[20px] bg-white flex flex-col">
+                <div class="p-[10px] text-base text-black mb-10">
+                  I listed my condo on this site and had multiple offers within
+                  the first week. The process was straightforward, and the
+                  platform made it easy to communicate with serious buyers. I
+                  closed the sale in just under a month!
+                </div>
+                <div class="mt-auto flex items-end gap-3">
+                  <img
+                    src="assets/Ellipse.png"
+                    class="h-[32px] w-[32px] rounded-full object-cover shrink-0"
+                  />
+                  <div>
+                    <p class="text-base text-primary font-medium">
+                      Jessica Morgan
+                    </p>
+                    <p class="text-sm italic text-black">Austin, Texas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="p-[20px] bg-white flex flex-col">
+                <div class="p-[10px] text-base text-black mb-10">
+                  I listed my condo on this site and had multiple offers within
+                  the first week. The process was straightforward, and the
+                  platform made it easy to communicate with serious buyers. I
+                  closed the sale in just under a month!
+                </div>
+                <div class="mt-auto flex items-end gap-3">
+                  <img
+                    src="assets/Ellipse.png"
+                    class="h-[32px] w-[32px] rounded-full object-cover shrink-0"
+                  />
+                  <div>
+                    <p class="text-base text-primary font-medium">
+                      Jessica Morgan
+                    </p>
+                    <p class="text-sm italic text-black">Austin, Texas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Our Network Section -->
+    <div class="py-20">
+      <div class="container mx-auto text-center">
+        <h2
+          class="font-OptimusPrinceps text-[18px] lg:text-[40px] uppercase font-regular text-black mb-4"
+        >
+          <span class="text-[#DBDBDB] block">our</span> professional networks
+        </h2>
+        <div class="swiper logo-slider w-full mx-auto my-10">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide mb-10">
+              <img src="assets/logo-placeholder.png" />
+            </div>
+            <div class="swiper-slide mb-10">
+              <img src="assets/logo-placeholder.png" />
+            </div>
+            <div class="swiper-slide mb-10">
+              <img src="assets/logo-placeholder.png" />
+            </div>
+            <div class="swiper-slide mb-10">
+              <img src="assets/logo-placeholder.png" />
+            </div>
+            <div class="swiper-slide mb-10">
+              <img src="assets/logo-placeholder.png" />
+            </div>
+            <div class="swiper-slide mb-10">
+              <img src="assets/logo-placeholder.png" />
+            </div>
+            <div class="swiper-slide mb-10">
+              <img src="assets/logo-placeholder.png" />
+            </div>
+            <div class="swiper-slide mb-10">
+              <img src="assets/logo-placeholder.png" />
+            </div>
+          </div>
+          <div class="logo-pagination"></div>
+        </div>
+
+        <a href="#" class="primary_outline_btn">Contact Us</a>
+      </div>
+    </div>
+    <!-- Subscribtion section -->
+    <div class="bg-primary py-20">
+      <div class="container mx-auto px-20">
+        <h2
+          class="text-white uppercase text-[20px] md:text-[30px] xl:text-[40px] text-center font-OptimusPrinceps mb-10"
+        >
+          Join our Mailing List<br />
+          TO RECEIVE NEWSLETTERS, NEW AND EXCLUSIVE LISTINGS
+        </h2>
+        <div
+          class="flex items-center flex-col lg:flex-row gap-5 max-w-5xl mx-auto"
+        >
+          <input
+            type="text"
+            placeholder="Name"
+            class="p-3 border border-white text-sm text-white outline-none placeholder:text-white/50 w-full"
+          />
+          <input
+            type="email"
+            placeholder="Email Address"
+            class="p-3 border border-white text-sm text-white outline-none placeholder:text-white/50 w-full"
+          />
+          <button
+            class="bg-white text-black text-sm uppercase py-3 px-20 font-bold border border-white transition-all duration-300 hover:bg-transparent hover:text-white"
+          >
+            SUBSCRIBE
+          </button>
+          <p class="text-xs text-black/50 font-medium whitespace-nowrap">
+            We respect your privacy
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      class="bg-white dark:bg-gray-900 container-fluid mx-auto py-20 px-4 xl:px-20"
+    >
+      <div class="xl:px-20">
+        <div class="lg:flex lg:justify-between">
+          <div class="mb-6 lg:mb-0">
+            <h3
+              class="text-black dark:text-white font-regular text-lg xl:text-[30px] mb-5 font-OptimusPrinceps"
+            >
+              WORK WITH US
+            </h3>
+            <p
+              class="text-black dark:text-white text-sm mb-5 max-w-[290px] leading-6"
+            >
+              We would love to get to know more about you real estate project!
+              If you are ready to take the next step towards your goal, please
+              get in contact with us or with one of our agents!
+            </p>
+            <a href="#" class="primary_btn inline-block">SEND A MESSAGE</a>
+          </div>
+          <div
+            class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4 xl:grid-cols-5 xl:gap-20"
+          >
+            <div>
+              <h2 class="mb-6 text-sm font-bold text-black dark:text-white">
+                Home
+              </h2>
+              <ul class="text-sm text-black dark:text-gray-400 font-medium">
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Company</a>
+                </li>
+
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Our Team</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Listings</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Buying</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Selling</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Construction</a>
+                </li>
+                <li class="">
+                  <a href="#" class="hover:underline">Consulting</a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h2 class="mb-6 text-sm font-bold text-black dark:text-white">
+                Career
+              </h2>
+              <ul class="text-black text-sm dark:text-gray-400 font-medium">
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Investors Relation</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Donations</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Contact</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Subscription</a>
+                </li>
+                <li class="mb-3">
+                  <a href="#" class="hover:underline">Blog</a>
+                </li>
+                <li class="">
+                  <a href="#" class="hover:underline">Log In</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-span-2 xl:cols-span-3 text-center">
+              <a href="#" class="flex justify-center">
+                <img src="assets/logo.jpg" class="mb-3" alt="Logo" />
+              </a>
+              <h4 class="text-lg text-black dark:text-white font-medium mb-1">
+                GEHARD REAL ESTATE GROUP
+              </h4>
+              <p class="text-black dark:text-white text-sm font-medium mb-10">
+                a division of ABC Enterprises
+              </p>
+              <div class="flex flex-col max-w-[230px] mx-auto gap-[20px]">
+                <div class="flex text-black dark:text-white gap-3 items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <path
+                      d="M15.3333 7C12.3926 7 10 9.39259 10 12.3333C10 13.2162 10.2207 14.0915 10.6403 14.8678L15.0417 22.8281C15.1003 22.9342 15.2119 23 15.3333 23C15.4547 23 15.5664 22.9342 15.625 22.8281L20.028 14.8652C20.446 14.0915 20.6667 13.2161 20.6667 12.3333C20.6667 9.39259 18.2741 7 15.3333 7ZM15.3333 15C13.863 15 12.6667 13.8037 12.6667 12.3333C12.6667 10.863 13.863 9.66669 15.3333 9.66669C16.8037 9.66669 18 10.863 18 12.3333C18 13.8037 16.8037 15 15.3333 15Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <p class="text-sm font-medium text-start">
+                    P.O. Box 852832<br />
+                    Richardson, Texas 750085
+                  </p>
+                </div>
+                <div class="flex text-black dark:text-white gap-3 items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_217_876)">
+                      <path
+                        d="M21.7162 17.5022C20.7366 17.5022 19.7747 17.349 18.8633 17.0478C18.4167 16.8954 17.8676 17.0352 17.595 17.3151L15.796 18.6732C13.7096 17.5595 12.4245 16.2748 11.326 14.204L12.6441 12.4519C12.9865 12.1099 13.1094 11.6103 12.9622 11.1415C12.6597 10.2253 12.506 9.26392 12.506 8.28392C12.5061 7.57596 11.9301 7 11.2222 7H8.28387C7.57596 7 7 7.57596 7 8.28387C7 16.3985 13.6016 23 21.7162 23C22.4241 23 23 22.424 23 21.7161V18.786C23 18.0781 22.424 17.5022 21.7162 17.5022Z"
+                        fill="currentColor"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_217_876">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="white"
+                          transform="translate(7 7)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <a
+                    href="to:(123) 456-7890"
+                    class="text-sm hover:text-primary font-medium"
+                  >
+                    (123) 456-7890
+                  </a>
+                </div>
+                <div class="flex text-black dark:text-white gap-3 items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <g clip-path="url(#clip0_217_883)">
+                      <path
+                        d="M17.3671 15.6641L16.0271 17.0086C15.4837 17.5539 14.5276 17.5657 13.9724 17.0086L12.6323 15.6641L7.81934 20.4927C7.99849 20.5755 8.19602 20.625 8.40602 20.625H21.5935C21.8035 20.625 22.001 20.5756 22.1801 20.4927L17.3671 15.6641Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M21.5935 9.375H8.40596C8.19596 9.375 7.99843 9.42444 7.81934 9.50728L12.9624 14.6674C12.9627 14.6677 12.9631 14.6678 12.9635 14.6681C12.9638 14.6685 12.9639 14.6689 12.9639 14.6689L14.6361 16.3468C14.8138 16.5244 15.1857 16.5244 15.3633 16.3468L17.0353 14.6692C17.0353 14.6692 17.0357 14.6685 17.036 14.6681C17.036 14.6681 17.0368 14.6677 17.0371 14.6674L22.18 9.50725C22.0009 9.42438 21.8035 9.375 21.5935 9.375Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M7.14956 10.1621C7.05687 10.3495 7 10.5576 7 10.7805V19.218C7 19.4409 7.05681 19.6489 7.14953 19.8364L11.9709 14.9994L7.14956 10.1621Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M22.8506 10.1621L18.0293 14.9995L22.8506 19.8365C22.9433 19.649 23.0001 19.441 23.0001 19.218V10.7805C23.0001 10.5576 22.9433 10.3495 22.8506 10.1621Z"
+                        fill="currentColor"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_217_883">
+                        <rect
+                          width="16"
+                          height="16"
+                          fill="white"
+                          transform="translate(7 7)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <a
+                    href="mailto:info@ourdomain.com"
+                    class="text-sm hover:text-primary font-medium"
+                  >
+                    info@ourdomain.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="px-4 xl:px-20 bg-[#5C5C5C] text-white py-4 text-xs font-medium">
+      <div class="grid grid-cols-1 lg:grid-cols-3 xl:px-20 items-center gap-5">
+        <div class="text-center lg:text-start">
+          © 2025 Gehard Real Estate Group, All Rights Reserved
+        </div>
+        <div class="text-center">
+          <a href="#" class="hover:underline">Terms Of Use</a> |
+          <a href="#" class="hover:underline">Privacy Statement</a> |
+          <a href="#" class="hover:underline">Cookie Setting</a> |
+          <a href="#" class="hover:underline">Help</a>
+        </div>
+        <div class="">
+          <img
+            class="mx-auto lg:ms-auto lg:me-0"
+            src="assets/footer_logo.png"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      function toggleTheme() {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          document.documentElement.classList.contains("dark") ? "dark" : "light"
+        );
+        updateThemeIcon();
+      }
+
+      function updateThemeIcon() {
+        const isDark = document.documentElement.classList.contains("dark");
+        document
+          .getElementById("theme-toggle-dark-icon")
+          .classList.toggle("hidden", !isDark);
+        document
+          .getElementById("theme-toggle-light-icon")
+          .classList.toggle("hidden", isDark);
+      }
+
+      // Set initial icon on load
+      document.addEventListener("DOMContentLoaded", () => {
+        // Optional: Set theme from localStorage
+        if (localStorage.getItem("theme") === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+        updateThemeIcon();
+      });
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        const logo = document.getElementById("logoText");
+        if (window.scrollY > 10) {
+          navbar.classList.add(
+            "bg-white",
+            "dark:bg-gray-900",
+            "shadow-md",
+            "top-0",
+            "heaer_fixed"
+          );
+          navbar.classList.remove("border-b", "top-12");
+          logo.classList.remove("text-white");
+        } else {
+          navbar.classList.remove(
+            "bg-white",
+            "dark:bg-gray-900",
+            "shadow-md",
+            "top-0",
+            "heaer_fixed"
+          );
+          navbar.classList.add("border-b", "top-12");
+          logo.classList.add("text-white");
+        }
+      });
+    </script>
+    <script>
+      var swiper = new Swiper(".product-slider", {
+        loop: true,
+        spaceBetween: 20,
+        breakpoints: {
+          // Responsive breakpoints
+          1500: {
+            slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          640: {
+            slidesPerView: 1,
+          },
+        },
+        pagination: {
+          el: ".product-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".product-next",
+          prevEl: ".product-prev",
+        },
+      });
+      var swiper = new Swiper(".logo-slider", {
+        loop: true,
+        spaceBetween: 20,
+        breakpoints: {
+          // Responsive breakpoints
+          1500: {
+            slidesPerView: 6,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          640: {
+            slidesPerView: 2,
+          },
+        },
+        pagination: {
+          el: ".logo-pagination",
+          clickable: true,
+        },
+      });
+      var swiper = new Swiper(".testimonial-slider", {
+        loop: true,
+        spaceBetween: 40,
+        centeredSlides: true,
+        autoplay: {
+          delay: 3000, // time in milliseconds between slides (3 seconds)
+          disableOnInteraction: false, // keeps autoplay running even after user interaction
+        },
+        breakpoints: {
+          // Responsive breakpoints
+          1500: {
+            slidesPerView: 5,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          640: {
+            slidesPerView: 1,
+          },
+        },
+      });
+      // Card image slider (inner) - for each card separately
+      document.querySelectorAll(".card-image-slider").forEach((el, index) => {
+        new Swiper(el, {
+          loop: true,
+          pagination: {
+            el: el.querySelector(".card-pagination"),
+            type: "fraction",
+          },
+          navigation: {
+            nextEl: el.querySelector(".card-next"),
+            prevEl: el.querySelector(".card-prev"),
+          },
+        });
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+  </body>
+</html>
